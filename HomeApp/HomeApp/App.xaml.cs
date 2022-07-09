@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeApp.Pages;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace HomeApp
             // инициализация интерфейса
             InitializeComponent();
             // Инициализация главного экрана
-            MainPage = new LoginPage(); // new LoadingPage();  new MainPage();
+            MainPage = new ClimatePage(); // new LoadingPage();  new MainPage();
         }
 
         protected override void OnStart()
