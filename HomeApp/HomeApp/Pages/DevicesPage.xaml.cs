@@ -24,7 +24,7 @@ namespace HomeApp.Pages
             var homeDevices = new List<HomeDevice>();
 
             // Заполняем список устройств
-            homeDevices.Add(new HomeDevice("Чайник", "kettle.jpg"));
+            homeDevices.Add(new HomeDevice("Чайник", "kettle.jpeg"));
             homeDevices.Add(new HomeDevice("Стиральная машина"));
             homeDevices.Add(new HomeDevice("Посудомоечная машина"));
             homeDevices.Add(new HomeDevice("Мультиварка"));
