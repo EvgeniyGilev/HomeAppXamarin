@@ -50,7 +50,7 @@ namespace HomeApp.Pages
             // Добавляем элементы на страницу
             stackLayout.Children.Add(pickerText);
             stackLayout.Children.Add(picker);
-
+            /*
             // Установим текст текущего значения переключателя Stepper
             var stepperText = new Label
             {
@@ -58,6 +58,7 @@ namespace HomeApp.Pages
                 HorizontalOptions = LayoutOptions.Center,
                 Margin = new Thickness(0, 30, 0, 0)
             };
+
             // Установим сам переключатель
             Stepper stepper = new Stepper
             {
@@ -71,9 +72,24 @@ namespace HomeApp.Pages
             // Добавим в разметку
             stackLayout.Children.Add(stepperText);
             stackLayout.Children.Add(stepper);
+            */
+
+            Slider slider = new Slider
+            {
+                Minimum = -30,
+                Maximum = 30,
+                Value = 5.0,
+                ThumbColor = Color.DodgerBlue,
+                MinimumTrackColor = Color.DodgerBlue,
+                MaximumTrackColor = Color.Gray
+            };
+            var sliderText = new Label { Text = $"Температура: {slider.Value} °C", HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(0, 30, 0, 0) };
+            stackLayout.Children.Add(sliderText);
+            stackLayout.Children.Add(slider);
 
             // Регистрируем обработчик события выбора температуры
-            stepper.ValueChanged += (sender, e) => TempChangedHandler(sender, e, stepperText);
+            //stepper.ValueChanged += (sender, e) => TempChangedHandler(sender, e, stepperText);
+            slider.ValueChanged += (sender, e) => TempChangedHandler(sender, e, sliderText);
 
 
             stackLayout.Children.Add(new Button { Text = "Сохранить", BackgroundColor = Color.Silver, Margin = new Thickness(0, 5, 0, 0) });
