@@ -66,7 +66,64 @@ namespace HomeApp.Pages
 
         private void LoadClock(object sender, EventArgs e)
         {
-            
+            var layout = new StackLayout();
+
+            layout.BackgroundColor = Color.Cyan;
+
+            var datePicker = new DatePicker
+            {
+                Format = "D",
+                // Диапазон дат: +/- неделя
+                MaximumDate = DateTime.Now.AddDays(7),
+                MinimumDate = DateTime.Now.AddDays(-7),
+
+            };
+
+            var datePickerText = new Label { Text = "Дата запуска ", Margin = new Thickness(0, 10, 0, 0) };
+
+            // Добавляем всё на страницу
+            layout.Children.Add(new Label { Text = "Будильник" });
+            layout.Children.Add(datePickerText);
+            layout.Children.Add(datePicker);
+
+            // Виджет выбора времени.
+            var timePickerText = new Label { Text = "Время запуска ", Margin = new Thickness(0, 10, 0, 0) };
+            var timePicker = new TimePicker
+            {
+                Time = new TimeSpan(13, 0, 0)
+            };
+
+            layout.Children.Add(timePickerText);
+            layout.Children.Add(timePicker);
+
+            //Уровень громкости
+            Slider slider = new Slider
+            {
+                Minimum = 0,
+                Maximum = 15,
+                Value = 1.0,
+                ThumbColor = Color.DodgerBlue,
+                MinimumTrackColor = Color.DodgerBlue,
+                MaximumTrackColor = Color.Gray
+            };
+
+            var sliderText = new Label { Text = $"Громкость: {slider.Value} ", HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(0, 30, 0, 0) };
+            layout.Children.Add(sliderText);
+            layout.Children.Add(slider);
+
+            // Создаем меню выбора в виде выпадающего списка с текстовым заголовком
+            var picker = new Picker { Title = "Запускать каждый день или нет?" };
+            // Добавляем значения выпадающего списка для пользовательского выбора
+            picker.Items.Add("Повторять каждый день");
+            picker.Items.Add("Запустить однократно");
+            // Добавляем элементы на страницу
+            layout.Children.Add(picker);
+
+
+
+            Content = layout;
+
+
         }
 
     }
