@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HomeApp.Pages"
+             x:Class="HomeApp.Pages.WeatherPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center"  HorizontalOptions="Center"  x:Name="stackLayout">
+            <Label Text="Welcome to WeatherApp!" FontSize="Title" Padding="30,10,30,10" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Button x:Name="WeatherButton" Text="{x:Static local:WeatherPage.BUTTON_TEXT_Wheather}" Clicked="LoadWeather" />
+            <Button x:Name="ClockButton" Text="{x:Static local:WeatherPage.BUTTON_TEXT_Clock}" Clicked="LoadClock" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
